@@ -28,7 +28,7 @@ pkey="${prepend}.key"
 pemlink="${prepend}.pem"
 pemfile="${prepend}-$(date +%F).pem"
 csrfile="${prepend}-$(date +%F).csr"
-RENEW_DAYS="95"
+RENEW_DAYS="15"
 
 if [ ! -f $pkey ];then 
   echo " - $pkey not found. Generating..."
