@@ -36,7 +36,7 @@ if [ ! -f $pkey ];then
   openssl genpkey -algorithm RSA -out $pkey
 fi 
 if [ -f $pkey ];then 
-  if (openssl pkey -in $pkey -check -noout > /dev/null 2>&1); then 
+  if (openssl rsa -in $pkey -check -noout > /dev/null 2>&1); then 
     echo " + Using $pkey as private key file. "
   else
     echo " - $pkey is invalid. Remove manually and restart"
