@@ -118,13 +118,11 @@ fi
 if [[ -e $csrfile_response ]];then
   echo " + Found CSR response. Fetching signed cert"
   cert_url=$(grep -Eo 'certnew.cer\?ReqID=[0-9]{7,8}&amp;Enc=b64' $csrfile_response)
-  #cat $csrfile_response
-  #grep -Eo 'ReqID=[0-9]{7,8}' $csrfile_RESPONSE
   echo $cert_url
-  #https://pki.ikea.com/certsrv/certnew.cer?ReqID=3709387&Enc=b64
-  #curl -sS -o $pemfile --negotiate -u "${AD_USER}@${DOMAIN}:" https://pki.ikea.com/certsrv/$CERT_URL  
   curl -sS -o $pemfile --negotiate -u : https://pki.ikea.com/certsrv/$CERT_URL  
 fi
 
-
+if [[ -e $pemfile ]];then
+  ln -sf $pemfile $pemlink
+fi
 
